@@ -74,7 +74,7 @@ app.include_router(vote.router)
 
 @app.get("/")
 def root():
-    return {"message": "Welcome to my PROD Heroku-API application!!!"}
+    return {"message": "HELLO WORLD!!!!!! Welcome to my PROD Heroku-API application!!!"}
 
 #@app.get("/sqlalchemy")
 #def test_posts(db: Session = Depends(get_db)):

@@ -1,0 +1,13 @@
+[Unit]
+Description=demo fastapi application 
+After=network.target
+
+[Service]
+User=avita
+Group=avita
+WorkingDirectory=/home/avita/app/src
+Environment="PATH=/home/avita/app/venv/bin"
+ExecStart=/home/avita/app/venv/bin/gunicorn -w 4 -k uvicorn.workers.UvicornWorker app.main:app --bind 0.0.0.0:8000
+
+[Install]
+WantedBy=multi-user.target
