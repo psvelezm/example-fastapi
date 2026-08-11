@@ -6,18 +6,17 @@ from .database import SessionLocal
 from .routers import post, user, auth, vote
 from .config import settings
 from fastapi.middleware.cors import CORSMiddleware
+
 print(settings.database_username)
 
 #models.base.metadata.create_all(bind=engine). 
 #no longer needed since we are using alembic to handle migrations
-
 
 pwd_context = PasswordHash([BcryptHasher()])
 
 app = FastAPI()
 
 origins = ["*","http://google.com"]  
-
 
 app.add_middleware( 
     CORSMiddleware,
@@ -74,7 +73,7 @@ app.include_router(vote.router)
 
 @app.get("/")
 def root():
-    return {"message": "HELLO WORLD!!!!!! Welcome to my PROD Heroku-API application!!!"}
+    return {"message": "FASTAPI TestClient!!!"}
 
 #@app.get("/sqlalchemy")
 #def test_posts(db: Session = Depends(get_db)):

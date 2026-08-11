@@ -1,5 +1,6 @@
 from datetime import datetime
-from sqlalchemy import Boolean, ForeignKey, String
+import string
+from sqlalchemy import Boolean, ForeignKey, String, column
 from .database import Base
 from sqlalchemy.sql.expression import text
 from sqlalchemy.sql.sqltypes import TIMESTAMP
@@ -26,7 +27,7 @@ class User(Base):
     email: Mapped[str] = mapped_column(String, nullable=False, unique=True)
     password: Mapped[str] = mapped_column(String, nullable=False)
     created_at: Mapped[datetime] = mapped_column(TIMESTAMP(timezone=True), nullable=False, server_default=text('now()'))
-
+    phone_number: Mapped[str] = mapped_column(String, nullable=True)
 
 class Vote(Base):
     __tablename__ = "votes"
