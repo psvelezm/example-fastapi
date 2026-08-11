@@ -8,5 +8,7 @@ jobs:
     steps:
       - name: pulling git repo
         uses: actions/checkout@v4
-      - name: say hi to the world
-        run: echo "Hello World"
+      - name: sudo apt install python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
